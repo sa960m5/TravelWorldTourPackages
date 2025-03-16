@@ -1,0 +1,42 @@
+body {
+    background: url("../images/add_packages.jpg");
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.package-form .form-group {
+    margin-bottom: 15px;
+}
+
+.small-textarea {
+    height: 80px; /* Reduced size */
+    resize: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Package</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/add_packages.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Add New Package</h2>
+        <form method="post" enctype="multipart/form-data" class="package-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                <input type="text" id="id_name" name="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_description">Description:</label>
+                <textarea id="id_description" name="description" class="form-control small-textarea" required></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="id_price">Price:</label>
+                    <input type="number" id="id_price" name="price" class="form-control" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="id_hotel">Hotel:</label>
+                    <input type="text" id="id_hotel" name="hotel" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_guide">Guide:</label>
+                <input type="text" id="id_guide" name="guide" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="id_image">Image:</label>
+                <input type="file" id="id_image" name="image" class="form-control-file">
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block">Add Package</button>
+            <a href="{% url 'vendors_packages' %}" class="btn btn-secondary btn-block">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

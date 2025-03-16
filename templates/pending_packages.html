@@ -1,0 +1,7 @@
+{% for pack in pending_packages %}
+    <div>
+        <h3>{{ pack.name }}</h3>
+        <p>{{ pack.description }}</p>
+        <a href="{% url 'approve_package' pack.id %}" class="btn btn-success">Approve</a>
+    </div>
+{% endfor %}
