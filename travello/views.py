@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from .forms import PackageForm
 from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import Q
 
 def index(request):
     return render(request, 'index.html')
@@ -141,8 +142,13 @@ def packages(request):
     return render(request, 'packages.html', {'packs': approved_packages})
 
 def vendors_packages(request):
-    approved_packages = Package.objects.filter(approved=True)
-    return render(request, 'vendors_packages.html', {'packs': approved_packages})
+    if request.user.is_authenticated:
+        packs = Package.objects.filter(
+            Q(approved=True) | Q(approved=False)
+        )
+    else:
+        packs = Package.objects.filter(approved=True)
+    return render(request, 'vendors_packages.html', {'packs': packs})
 
 def edit_package(request, package_id):
     package = get_object_or_404(Package, id=package_id)
